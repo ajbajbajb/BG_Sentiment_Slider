@@ -2,17 +2,16 @@ import React from 'react'
 import { graphql } from 'gatsby'
 import Slider from '../components/slider'
 import Layout from '../components/layout'
-import Dummy from '../components/dummy'
-import unified from 'unified'
-import markdown from 'remark-parse'
-import html from 'remark-html'
+// import unified from 'unified'
+// import markdown from 'remark-parse'
+// import html from 'remark-html'
 
 const Quiz = ({ data }) => {
   const quiz = data.quiz.data
 
   return(
     <Layout>
-      <div className="container"><div
+      {/* <div className="container"><div
         className='article'
         dangerouslySetInnerHTML={{
           __html: unified()
@@ -35,7 +34,7 @@ const Quiz = ({ data }) => {
             .use(html)
             .processSync(quiz.articleBody)
         }}
-      />
+      /> */}
       <div className='ssBox'>
       <div className='sliderTitle'>
         <h3>Tell Us What You Think, Use the Sentiment Slider!</h3>
@@ -53,11 +52,12 @@ const Quiz = ({ data }) => {
         UI={quiz.UI}
       />
       </div>
-      </div>
     </Layout>
    
   )
 }
+
+// Using GraphQL this 
 export const query = graphql`
   query ($quizName: String!) {
     quiz: airtable(
@@ -77,9 +77,6 @@ export const query = graphql`
         yRangeLowTickLabel
         yRangeMidTickLabel
         yRangeHighTickLabel
-        articleHeadline
-        articlePhoto
-        articleBody
         UI
       }
     }

@@ -32,6 +32,7 @@
     "react-dom": "^17.0.1",
     "react-icons": "^4.2.0",
     "remark-html": "^13.0.1",
+    "remark-parse": "^9.0.0",
     "sass": "^1.32.8",
     "slash": "^3.0.0",
     "unified": "^9.2.1"
