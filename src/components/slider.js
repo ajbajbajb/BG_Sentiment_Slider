@@ -265,6 +265,7 @@ const Sliders = ({quizName, xQuestion, xRangeLowTickLabel, xRangeMidTickLabel, x
       {data}
     </>
   )
+})
 }
 
 export default Sliders
