@@ -74,8 +74,9 @@ const Sliders = ({quizName, xQuestion, xRangeLowTickLabel, xRangeMidTickLabel, x
         clickTime: Firebase.firestore.Timestamp.fromDate(new Date()) // push the result to the firestore (this will be added as 'clicks')
       }) // TESTING // We added clickTime since it would be worth knowing how long users take to answer the sliders.
     }
-
-    // FIRESTORE data collection and sorting, to pass to the graph
+    // React hook that pulls quiz clicks from Firebase
+    // Firestore data collection and sorting, to pass to the graph
+    // Options for the Firebase connection are in the gatsby-config.js file
     quiz.orderBy('clickTime', 'desc').onSnapshot((querySnapshot) => {
       const graphData = []
       const clicks = []
@@ -87,14 +88,7 @@ const Sliders = ({quizName, xQuestion, xRangeLowTickLabel, xRangeMidTickLabel, x
         const clickTime = doc.data().clickTime
 
         // building the graphData array from existing data on the Firestore (the variable quiz)
-        graphData.push([xAnswer, yAnswer])
-        clicks.push(
-          <div className='past-click' data-timestamp={clickTime} key={clickId}>
-            <p>{xQuestion} <strong>{xAnswer}</strong></p>
-            <p>{yQuestion} <strong>{yAnswer}</strong></p>
-          </div>
-        )
-      })
+        
       
       clicks.sort(function(a, b) {
         return b.props['data-timestamp'] - a.props['data-timestamp']

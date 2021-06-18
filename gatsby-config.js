@@ -13,6 +13,7 @@ module.exports = {
       __key: `pages`,
     },
     {
+      // the gatsby firebase in integration + options
       resolve: `gatsby-plugin-firebase`,
       options: {
         credentials: {
@@ -26,6 +27,7 @@ module.exports = {
         }
       }
     },
+    // the gatsby airtable integration + options
     {
       resolve: `gatsby-source-airtable`,
       options: {

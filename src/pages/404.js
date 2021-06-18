@@ -1,5 +1,6 @@
 import * as React from "react"
 import { Link } from "gatsby"
+// stock 404 page
 
 // styles
 const pageStyles = {
