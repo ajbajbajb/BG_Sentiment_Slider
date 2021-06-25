@@ -89,6 +89,13 @@ const Sliders = ({quizName, xQuestion, xRangeLowTickLabel, xRangeMidTickLabel, x
 
         // building the graphData array from existing data on the Firestore (the variable quiz)
         
+        graphData.push([xAnswer, yAnswer])
+        clicks.push(
+          <div className='past-click' data-timestamp={clickTime} key={clickId}>
+            <p>{xQuestion} <strong>{xAnswer}</strong></p>
+            <p>{yQuestion} <strong>{yAnswer}</strong></p>
+          </div>
+        )
       
         clicks.sort(function(a, b) {
           return b.props['data-timestamp'] - a.props['data-timestamp']
@@ -256,7 +263,7 @@ const Sliders = ({quizName, xQuestion, xRangeLowTickLabel, xRangeMidTickLabel, x
         )
       });
       
-    })
+    });
   }, [])
 
   // passes data for access through the component
@@ -265,7 +272,6 @@ const Sliders = ({quizName, xQuestion, xRangeLowTickLabel, xRangeMidTickLabel, x
       {data}
     </>
   )
-})
 }
 
 export default Sliders
