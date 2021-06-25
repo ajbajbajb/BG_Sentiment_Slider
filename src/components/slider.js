@@ -246,11 +246,11 @@ const Sliders = ({quizName, xQuestion, xRangeLowTickLabel, xRangeMidTickLabel, x
 
               {/* submit button toggles as both questions are answered */}
               <div className='buttons'>
-                <button className='submit-button disabled'>
+                <button aria-label="Save" className='submit-button disabled'>
                   See How You Compare To Others...
                 </button>
               {/* skip button runs skipToAnswers function  */}
-                <button className='skip-button' onClick={skipToAnswers}>
+                <button aria-label="Save" className='skip-button' onClick={skipToAnswers}>
                   Skip to Responses
                 </button>
               </div>
@@ -273,5 +273,6 @@ const Sliders = ({quizName, xQuestion, xRangeLowTickLabel, xRangeMidTickLabel, x
     </>
   )
 }
+
 
 export default Sliders

@@ -1,26 +1,31 @@
 import React from "react"
-import { scaleLinear, axisLeft, axisBottom, select, min } from "d3"
+import { scaleLinear, axisLeft, axisBottom, select } from "d3"
 import { FaArrowsAltV, FaArrowsAltH } from 'react-icons/fa';
 
-function sortNumber(a, b) {
-  return a - b
-}
+// function sortNumber(a, b) {
+//   return a - b
+// }
+
+// defining the ScatterPlot component
 
 export default class ScatterPlot extends React.Component {
+  // connecting the component to the inputs
   constructor(props) {
     super(props)
   }
   
   render() {
+    // defining the size of the graph
     const margin = { top: 20, right: 80, bottom: 60, left: 80 }
     const width = 800 - margin.left - margin.right
     const height = 600 - margin.top - margin.bottom
+    // defining the data & labels to apply to the graph
     const data = this.props.data
-
     const xTicks = this.props.xTicks
     const yTicks = this.props.yTicks
     const label = this.props.label
 
+    // using d3 scaleLinear to set the constraints of the axes
     const x = scaleLinear()
       .domain([
         0, 100
@@ -36,23 +41,30 @@ export default class ScatterPlot extends React.Component {
       ])
       .range([height, 0])
 
+    
+  // returning an svg using the graph inputs
     return (
       <div>
         <svg
+          // using viewbox to define the visible area
           viewBox='0 0 800 600'
           className="chart"
         >
+          {/* using the label index to label the axes outside of the chart. using icons for x or y axis */}
           <p className='answerTitle'><FaArrowsAltH/> {label[0]} <FaArrowsAltV/> {label[1]}</p>
+          {/* positioning the graph container */}
           <g
             transform={"translate(" + margin.left + "," + margin.top + ")"}
             width={width}
             height={height}
             className="main"
           >
+            {/* rendering the data. first we start with defining the axes and the labels */}
             <RenderCircles data={data} scale={{ x, y }} />
+            {/* calling and positioning the axes */}
             <Axis
               axis="x"
-              transform={"translate(0," + height/2 + ")"}
+              transform={"translate(0," + height/2 + ")"} 
               scale={axisBottom().scale(x).ticks(3).tickFormat((d, i) => `${xTicks[i]}`)}
             />
             <Axis
@@ -61,7 +73,9 @@ export default class ScatterPlot extends React.Component {
               scale={axisLeft().scale(y).ticks(3).tickFormat((d, i) => `${yTicks[i]}`)}
             />
           </g>
+          {/* using the label index to label the axes outside of the chart. using icons for x or y axis */}
           <p className='answerTitle'><FaArrowsAltH/> {label[0]} <FaArrowsAltV/> {label[1]}</p>
+          {/* positioning the axis labels, very sloppily, notice the fractions of the height and width */}
           <text 
             className='answerTitle'
             textAnchor='start'
@@ -85,6 +99,7 @@ export default class ScatterPlot extends React.Component {
   }
 }
 
+// rendering the data on the axes we drew above
 class RenderCircles extends React.Component {
   render() {
     const array = this.props.data
@@ -98,16 +113,21 @@ class RenderCircles extends React.Component {
           key={i}
         />
       :
-        <> // empty element to group circle + text
+        <> 
+        {/* empty element to group circle + text */}
         <circle
+          // positioning the x & y of the circle using the coords taken from the data, passed in slider
           cx={this.props.scale.x(coords[0])}
           cy={this.props.scale.y(coords[1])}
+          // setting the size of the circle
           r="12"
+          // setting the color of the circle
           style={{fill: "#DE7D08", zIndex: '1'}}
           className="last_circle"
           key={i}
         />
           <text 
+          // simple sloppy label for 'Your Response', positioned to right of circle
           className="circleLabel"
           x={this.props.scale.x(coords[0])+14}
           y={this.props.scale.y(coords[1])+5}
@@ -116,6 +136,7 @@ class RenderCircles extends React.Component {
           </text>
         </>
     ))
+    // returning renderCircles as a 'g' element
     return <g>{renderCircles}</g>
   }
 }
