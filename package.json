@@ -19,7 +19,7 @@
     "firebase": "^8.3.3",
     "firebase-admin": "^9.6.0",
     "gatsby": "^3.2.1",
-    "gatsby-cli": "^3.7.1",
+    "gatsby-cli": "^3.8.0",
     "gatsby-plugin-firebase": "^0.2.0-beta.4",
     "gatsby-plugin-sass": "^4.2.0",
     "gatsby-source-airtable": "^2.1.1",
