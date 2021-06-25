@@ -265,9 +265,7 @@ const Sliders = ({quizName, xQuestion, xRangeLowTickLabel, xRangeMidTickLabel, x
       {data}
     </>
   )
+})
 }
-// brought it down to just the one curly.
-// now getting the react UseEffect errors, but everything's working again
-
 
 export default Sliders
