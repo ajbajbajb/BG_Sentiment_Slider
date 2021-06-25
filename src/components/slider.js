@@ -88,7 +88,6 @@ const Sliders = ({quizName, xQuestion, xRangeLowTickLabel, xRangeMidTickLabel, x
         const clickTime = doc.data().clickTime
 
         // building the graphData array from existing data on the Firestore (the variable quiz)
-        
       
         clicks.sort(function(a, b) {
           return b.props['data-timestamp'] - a.props['data-timestamp']
