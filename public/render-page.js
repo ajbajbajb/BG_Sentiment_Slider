@@ -4778,24 +4778,24 @@ if (false) {} else {
 /***/ }),
 
 /***/ "react-dom/server":
-/*!*************************************************************************************************************************!*\
-  !*** external "/Users/blakehunsicker/Workspace/article-land/site/BG_Sentiment_Slider/node_modules/react-dom/server.js" ***!
-  \*************************************************************************************************************************/
+/*!**************************************************************************************************************************!*\
+  !*** external "/Users/ajb/Google Drive/NYU/SS_Proto/BG_Sentiment_Slider_Documentation/node_modules/react-dom/server.js" ***!
+  \**************************************************************************************************************************/
 /***/ ((module) => {
 
 "use strict";
-module.exports = require("/Users/blakehunsicker/Workspace/article-land/site/BG_Sentiment_Slider/node_modules/react-dom/server.js");;
+module.exports = require("/Users/ajb/Google Drive/NYU/SS_Proto/BG_Sentiment_Slider_Documentation/node_modules/react-dom/server.js");;
 
 /***/ }),
 
 /***/ "react":
-/*!********************************************************************************************************************!*\
-  !*** external "/Users/blakehunsicker/Workspace/article-land/site/BG_Sentiment_Slider/node_modules/react/index.js" ***!
-  \********************************************************************************************************************/
+/*!*********************************************************************************************************************!*\
+  !*** external "/Users/ajb/Google Drive/NYU/SS_Proto/BG_Sentiment_Slider_Documentation/node_modules/react/index.js" ***!
+  \*********************************************************************************************************************/
 /***/ ((module) => {
 
 "use strict";
-module.exports = require("/Users/blakehunsicker/Workspace/article-land/site/BG_Sentiment_Slider/node_modules/react/index.js");;
+module.exports = require("/Users/ajb/Google Drive/NYU/SS_Proto/BG_Sentiment_Slider_Documentation/node_modules/react/index.js");;
 
 /***/ })
 

@@ -190,12 +190,12 @@ main .past-clicks {
   -ms-grid-column: 2;
   -ms-grid-column-span: 6;
   grid-column: 2 / 8;
-  margin: 4rem auto;
+  margin: 2rem auto;
 }
 
 main .past-clicks .past-click {
-  padding: 1rem;
-  background: red;
+  padding: 2rem;
+  background: none;
   margin: 0 0 1rem;
 }
 

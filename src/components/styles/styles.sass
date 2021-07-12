@@ -1,3 +1,5 @@
+// we used sass to add variables and watch changes live during development. the resulting file is styles.css
+
 $BGDarkBlue: #005DC7
 $BGDarkBlueOpaque: rgba(0, 93, 199, 0.5)
 $BGRed: #9E1511
@@ -6,7 +8,9 @@ $BGLightGray: #DDDDDD
 $BGMediumGray: #777777
 $BGDarkGray: #444444
 $RoundedCorners: 0.4rem
-  
+
+// these variables are used throughout and come from the other Studio20 team's design system.
+
 body
   margin: 0 auto
   font-family: nunito, sans-serif
@@ -17,12 +21,14 @@ nav
   padding: 0 1rem
   text-align: center
   border-bottom: 1px solid black
+
 // circle // Xavi hates the blur
   // filter: blur(3px) 
 .last_circle
   filter: blur(0px)
+// as described in the scatterplot.js, we were blurring the circles to make large volumes of data look better. opacity instead of saturation is interesting to use to visualize frequency of response. but it didn't make much sense with our small datasets so we just used circle opacity
 
-// chrome remove blue background
+// we removed the blue background on chrome's rangeslider handles.
 input[type=range]::-webkit-slider-runnable-track 
     background: #e9eaeb
     border-radius: 10px;
@@ -34,6 +40,7 @@ img
   width: 100%
   height: auto
   max-width: 850px
+// we only used images when we had a Boston Globe op-ed article during testing
   
 main
   display: grid
@@ -64,6 +71,7 @@ main
     margin: 0 1rem
     .tick:nth-child(3)  // to hide middle tick on scatter plot
       visibility: hidden
+  // arranging things inside the container that holds the questions
   .range-container
     grid-column: 1 / 9
     padding: 1rem
@@ -116,14 +124,14 @@ main
       .disabled
         color: white
         background: $BGDarkBlueOpaque
-        // border: 1px solid $BGDarkBlueOpaque!important
   .past-clicks
+    // this was an html list displaying the data of past results, for debugging
     display: none
     grid-column: 2 / 8
-    margin: 4rem auto
+    margin: 2rem auto
     .past-click
-      padding: 1rem
-      background: red
+      padding: 2rem
+      background: none
       margin: 0 0 1rem
   .answerTitle
     text-align: center
@@ -137,7 +145,8 @@ main
     font-family: Miller,Georgia,Times,Times New Roman,serif
     padding-top: 15px
     color: $BGDarkBlue
-    
+
+// arranging elements in the gray box
 .ssBox 
   grid-column: 1 / 9
   margin: 10px
@@ -145,6 +154,7 @@ main
   background-color: #f6f6f6
   margin-bottom: 10vh
 
+// mobile sizing to keep elements stacked
 @media only screen and ( min-width: 768px )
   main
     .hero, .article-body, .article

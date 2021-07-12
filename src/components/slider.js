@@ -111,7 +111,7 @@ const Sliders = ({quizName, xQuestion, xRangeLowTickLabel, xRangeMidTickLabel, x
               {/* the slider questions are displayed here, the range-container class toggles their visibility*/}
               {
                 // SNIP HERE & BELOW TO REMOVE TESTING ENVIRONMENT
-                // If the UI cell in the Airtable contains any of the 2 variations below it will toggle visibility settings for the second slider, either gray, or hidden.
+                // If the UI cell in the Airtable contains either of the 2 variations below it will toggle visibility settings for the second slider, either gray, or hidden. If the UI cell is left blank both questions are visible at the same time (the standard layout)
                 // I have made comments on only the default layout, since the others are just variations with class changes to toggle visibility.
                 UI === 'secondQuestionGray' ?
                   <>
@@ -191,13 +191,14 @@ const Sliders = ({quizName, xQuestion, xRangeLowTickLabel, xRangeMidTickLabel, x
                 // the variables were passed to this slider.js component in the quiz.js use of <Slider>
                 // we do this for the X and the Y axis.
                 // the most important part is the use of the html 'range' input.
+                // here we set the granularity of the slider. we are using a range of 0 - 100, but a lower number (0-5) was considered. with lower granularity it's possible to create profiles for respondents. with our current range there are 100x100 different results, too many to deal with. with (5x5) 25 
                   <>
                     <div className='question'>
                       <label>{xQuestion}</label> 
                       {/* input creates the slider. we used 1 - 100 for a certain level of granularity. This gives 1000 possible data points on a 100 x 100 grid. Default value is the middle of the slider. the id is used for styling */}
                       <input type='range' list='tickmarks' min='1' max='100' defaultValue='50' className='questionOne' id='questionOne' /> 
                       <datalist id='tickmarks'>
-                        {/* datalist to add ticks on chrome */}
+                        {/* to show the ticks we need to specify values as a datalist. this is necessary for chrome, but we've also had issues on other browsers... ¯\_(ツ)_/¯ */}
                         <option value='1' className='prominent-tick'></option>
                         <option value='10'></option>
                         <option value='20'></option>
@@ -211,6 +212,7 @@ const Sliders = ({quizName, xQuestion, xRangeLowTickLabel, xRangeMidTickLabel, x
                         <option value='100' className='prominent-tick'></option>
                       </datalist>
                       <div className="ticks">
+                        {/* assigning the tick labels to each tick in sequence.*/}
                         <span className="tick">{xRangeLowTickLabel}</span>
                         <span className="tick">{xRangeMidTickLabel}</span>
                         <span className="tick">{xRangeHighTickLabel}</span>
@@ -234,6 +236,7 @@ const Sliders = ({quizName, xQuestion, xRangeLowTickLabel, xRangeMidTickLabel, x
                         <option value='100' className='prominent-tick'></option>
                       </datalist>
                       <div className="ticks">
+                        {/* assigning the tick labels to each tick in sequence.*/}
                         <span className="tick">{yRangeLowTickLabel}</span>
                         <span className="tick">{yRangeMidTickLabel}</span>
                         <span className="tick">{yRangeHighTickLabel}</span>
@@ -255,7 +258,8 @@ const Sliders = ({quizName, xQuestion, xRangeLowTickLabel, xRangeMidTickLabel, x
                 </button>
               </div>
             </div>
-            {/* stores the clicks array ppulated in the quiz.orderBy method */}
+            {/* stores the clicks array populated in the quiz.orderBy method */}
+            {/* TESTING // showing all the results in html below the slider box. for debugging. no longer used */}
             <div className='past-clicks'>
               {clicks}
             </div>
