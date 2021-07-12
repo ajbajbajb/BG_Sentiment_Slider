@@ -111,7 +111,7 @@ const Sliders = ({quizName, xQuestion, xRangeLowTickLabel, xRangeMidTickLabel, x
               {/* the slider questions are displayed here, the range-container class toggles their visibility*/}
               {
                 // SNIP HERE & BELOW TO REMOVE TESTING ENVIRONMENT
-                // If the UI cell in the Airtable contains either of the 2 variations below it will toggle visibility settings for the second slider, either gray, or hidden. If the UI cell is left blank both questions are visible at the same time (the standard layout)
+                // If the UI cell in the Airtable contains either of the 2 variations below it will toggle visibility settings for the second slider, either gray, or hidden. If the UI cell reads 'bothQuestionsVisible' both questions are visible at the same time (the standard layout)
                 // I have made comments on only the default layout, since the others are just variations with class changes to toggle visibility.
                 UI === 'secondQuestionGray' ?
                   <>

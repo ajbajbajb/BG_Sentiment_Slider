@@ -66,7 +66,7 @@ const Quiz = ({ data }) => {
         yRangeHighTickLabel={quiz.yRangeHighTickLabel}
         // the right-most label for the first question
         UI={quiz.UI}
-        // this give us three options for our testing environments: 'secondQuestionGray', 'secondQuestionHidden', or, if left blank, both questions visible at the same time. this cell is addressed in slider.js from line 116 
+        // this give us three options for our testing environments: 'secondQuestionGray', 'secondQuestionHidden', or, 'bothQuestionsVisible'. this cell is addressed in slider.js from line 116 
       />
       </div>
     </Layout>

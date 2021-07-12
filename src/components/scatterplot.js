@@ -118,7 +118,7 @@ class RenderCircles extends React.Component {
     const array = this.props.data
     // loading the data for this chart from the instance defined above from airtable data
     let renderCircles = this.props.data.map((coords, i) => (
-      i != 0 ?
+      i !== 0 ?
         // if data exists, render older results as circles with centers defined by the data -> coords map. the 'clicks' data is stored as x, y... 
         // the first in the index (the latest) will be rendered after.
         <circle
